@@ -1,9 +1,9 @@
 import React from 'react';
-import Home from './components/home'
+import LoginNavigation from './components/navigation/loginNavigation';
 
 
 function App() {
-  return (<Home/>)
+  return (<LoginNavigation/>)
 }
 
 export default App;
