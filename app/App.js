@@ -1,9 +1,10 @@
 import React from 'react';
-import Home from './components/home';
+import Login from './auth/login';
+import Home from './components/home'
 
 
 function App() {
-  return (<Home/>)
+  return (<Login/>)
 }
 
 export default App;
