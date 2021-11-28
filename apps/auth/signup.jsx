@@ -4,13 +4,12 @@ import {Text, View, StyleSheet, Image, TextInput, Button} from 'react-native';
 export default function SignUp() {
   return (
     <View style={styles.container}>
-      <Text style={styles.logo}>시나브로</Text>
-      <Image style={styles.globe} source={require('../assets/globew.png')} />
+      <Image style={styles.globe} source={require('../assets/logo2.png')} />
       <View style={styles.input}>
         <TextInput style={styles.textInput} placeholder="아이디" />
         <TextInput style={styles.textInput} placeholder="비밀번호" />
         <TextInput style={styles.textInput} placeholder="비밀번호 재입력" />
-        <Button title="로그인" />
+        <Button title="다음" />
       </View>
     </View>
   );
@@ -32,11 +31,11 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   globe: {
-    width: 76,
-    height: 76,
+    width: '50%',
+    height: '20%',
     justifyContent: 'center',
     alignItems: 'center',
-    opacity: 0.5,
+    resizeMode: 'contain',
   },
   textInput: {
     width: 200,
@@ -50,10 +49,9 @@ const styles = StyleSheet.create({
   },
   input: {
     width: 300,
-    height: 200,
+    height: '40%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'blue',
   },
   stack: {
     width: 300,

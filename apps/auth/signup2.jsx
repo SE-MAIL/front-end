@@ -1,27 +1,16 @@
 import * as React from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  TextInput,
-  Button,
-  SafeAreaView,
-} from 'react-native';
+import {Text, View, StyleSheet, Image, TextInput, Button} from 'react-native';
 
-export default function Login() {
+export default function SignUp() {
   return (
     <View style={styles.container}>
       <Image style={styles.globe} source={require('../assets/logo2.png')} />
       <View style={styles.input}>
-        <TextInput style={styles.textInput} placeholder="아이디" />
-        <TextInput style={styles.textInput} placeholder="비밀번호" />
-        <Button title="로그인" />
-      </View>
-      <View style={styles.stack}>
-        <Button title="비밀번호 찾기" />
-        <Button title="아이디 찾기" />
-        <Button title="회원가입 하기" />
+        <TextInput style={styles.textInput} placeholder="이름" />
+        <TextInput style={styles.textInput} placeholder="나이" />
+        <TextInput style={styles.textInput} placeholder="성별" />
+        <TextInput style={styles.textInput} placeholder="직업" />
+        <Button title="회원가입" />
       </View>
     </View>
   );
@@ -64,13 +53,13 @@ const styles = StyleSheet.create({
     height: '40%',
     justifyContent: 'center',
     alignItems: 'center',
-
   },
   stack: {
     width: 300,
     height: 40,
     flexDirection: 'row',
+    backgroundColor: 'red',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
 });
