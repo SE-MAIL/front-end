@@ -7,10 +7,11 @@ import Join from './auth/join';
 import RecommandMain from './recommandation/recommandMain';
 import Graph from './graph/graph';
 import Test from './test';
-
+import Profile from './profile/profile';
+import Main from './main/main';
 
 function App() {
-  return <Graph />;
+  return <Main />;
 }
 
 export default App;
