@@ -12,6 +12,9 @@
   "dependencies": {
     "react": "17.0.2",
     "react-native": "0.66.3",
+    "react-native-modal": "^13.0.0",
+    "react-native-simple-modal": "^9.0.1",
+    "react-native-vector-icons": "^9.0.0",
     "react-timer-mixin": "^0.13.4"
   },
   "devDependencies": {
