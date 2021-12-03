@@ -1,11 +1,11 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
-export default function Home() {
+export default function Start() {
   return (
     <View style={styles.container}>
       <Text style={styles.logoSub}>
-        모르는 사이에 조금씩 조금씩
+        안녕하세요, 
       </Text>
       <Text style={styles.logo}>
         시나브로

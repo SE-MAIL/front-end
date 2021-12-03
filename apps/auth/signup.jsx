@@ -10,6 +10,7 @@ export default function SignUp() {
         <TextInput style={styles.textInput} placeholder="비밀번호" />
         <TextInput style={styles.textInput} placeholder="비밀번호 재입력" />
         <Button title="다음" />
+        <Button title="등록된 가구에 참여하기" />
       </View>
     </View>
   );

@@ -9,7 +9,6 @@ export default function Join() {
         <TextInput style={styles.textInput} placeholder="이름" />
         <TextInput style={styles.textInput} placeholder="나이" />
         <TextInput style={styles.textInput} placeholder="성별" />
-        <TextInput style={styles.textInput} placeholder="직업" />
         <TextInput style={styles.textInput} placeholder="가구 ID" />
         <Button title="등록된 가구에 참여하기" />
       </View>

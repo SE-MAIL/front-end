@@ -9,7 +9,6 @@ export default function SignUp() {
         <TextInput style={styles.textInput} placeholder="이름" />
         <TextInput style={styles.textInput} placeholder="나이" />
         <TextInput style={styles.textInput} placeholder="성별" />
-        <TextInput style={styles.textInput} placeholder="직업" />
         <Button title="회원가입" />
       </View>
     </View>
