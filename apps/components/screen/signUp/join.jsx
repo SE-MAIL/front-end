@@ -1,21 +1,24 @@
 import * as React from 'react';
 import {Text, View, StyleSheet, Image, TextInput, Button} from 'react-native';
+import {ScreenWrapper} from '../../common/wrapper';
 
 export default function Join() {
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.globe}
-        source={require('../../../assets/logo2.png')}
-      />
-      <View style={styles.input}>
-        <TextInput style={styles.textInput} placeholder="이름" />
-        <TextInput style={styles.textInput} placeholder="나이" />
-        <TextInput style={styles.textInput} placeholder="성별" />
-        <TextInput style={styles.textInput} placeholder="가구 ID" />
-        <Button title="등록된 가구에 참여하기" />
+    <ScreenWrapper>
+      <View style={styles.container}>
+        <Image
+          style={styles.globe}
+          source={require('../../../assets/logo2.png')}
+        />
+        <View style={styles.input}>
+          <TextInput style={styles.textInput} placeholder="이름" />
+          <TextInput style={styles.textInput} placeholder="나이" />
+          <TextInput style={styles.textInput} placeholder="성별" />
+          <TextInput style={styles.textInput} placeholder="가구 ID" />
+          <Button title="등록된 가구에 참여하기" />
+        </View>
       </View>
-    </View>
+    </ScreenWrapper>
   );
 }
 

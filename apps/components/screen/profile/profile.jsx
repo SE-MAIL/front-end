@@ -9,70 +9,73 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Modal from 'react-native-simple-modal';
+import {ScreenWrapper} from '../../common/wrapper';
 
 export default class Profile extends React.Component {
   state = {open: false};
   render() {
     return (
-      <ScrollView style={styles.container}>
-        <Text style={styles.title}>프로필 설정</Text>
-        <Text style={styles.title}>등록된 가구원 수 4명</Text>
+      <ScreenWrapper>
+        <ScrollView style={styles.container}>
+          <Text style={styles.title}>프로필 설정</Text>
+          <Text style={styles.title}>등록된 가구원 수 4명</Text>
 
-        <View style={styles.wrapContent}>
-          <TouchableOpacity onPress={() => this.setState({open: true})}>
-            <View style={styles.content}></View>
-            <Text style={styles.txt}>구성원1</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.wrapContent}>
-          <TouchableOpacity onPress={() => this.setState({open: true})}>
-            <View style={styles.content}></View>
-            <Text style={styles.txt}>구성원2</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.wrapContent}>
-          <TouchableOpacity onPress={() => this.setState({open: true})}>
-            <View style={styles.content}></View>
-            <Text style={styles.txt}>구성원3</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.wrapContent}>
-          <TouchableOpacity onPress={() => this.setState({open: true})}>
-            <View style={styles.content}></View>
-            <Text style={styles.txt}>구성원4</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.wrapContent}>
-          <TouchableOpacity onPress={() => this.setState({open: true})}>
-            <View style={styles.content2}></View>
-            <Text style={styles.add}>추가하기</Text>
-          </TouchableOpacity>
-        </View>
-
-        <Modal
-          offset={this.state.offset}
-          open={this.state.open}
-          modalDidClose={() => this.setState({open: false})}
-          style={{alignItems: 'center'}}>
-          <View>
-            <Text style={{fontSize: 20, marginBottom: 30}}>
-              샤워: kg 감소 가능
-            </Text>
-            <Text style={styles.popTextTop}>평균 배출량: %</Text>
-            <Text style={styles.popTextTop}>나의 배출량: %</Text>
-            <Text style={styles.popTextBottom}>
-              1. 시나에게 "나 사워할게"라고 말해보세요{' '}
-            </Text>
-            <TouchableOpacity
-              style={{margin: 5}}
-              onPress={() => this.setState({open: false})}>
-              <Text>확인했습니다!</Text>
+          <View style={styles.wrapContent}>
+            <TouchableOpacity onPress={() => this.setState({open: true})}>
+              <View style={styles.content}></View>
+              <Text style={styles.txt}>구성원1</Text>
             </TouchableOpacity>
           </View>
-        </Modal>
-      </ScrollView>
+
+          <View style={styles.wrapContent}>
+            <TouchableOpacity onPress={() => this.setState({open: true})}>
+              <View style={styles.content}></View>
+              <Text style={styles.txt}>구성원2</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.wrapContent}>
+            <TouchableOpacity onPress={() => this.setState({open: true})}>
+              <View style={styles.content}></View>
+              <Text style={styles.txt}>구성원3</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.wrapContent}>
+            <TouchableOpacity onPress={() => this.setState({open: true})}>
+              <View style={styles.content}></View>
+              <Text style={styles.txt}>구성원4</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.wrapContent}>
+            <TouchableOpacity onPress={() => this.setState({open: true})}>
+              <View style={styles.content2}></View>
+              <Text style={styles.add}>추가하기</Text>
+            </TouchableOpacity>
+          </View>
+
+          <Modal
+            offset={this.state.offset}
+            open={this.state.open}
+            modalDidClose={() => this.setState({open: false})}
+            style={{alignItems: 'center'}}>
+            <View>
+              <Text style={{fontSize: 20, marginBottom: 30}}>
+                샤워: kg 감소 가능
+              </Text>
+              <Text style={styles.popTextTop}>평균 배출량: %</Text>
+              <Text style={styles.popTextTop}>나의 배출량: %</Text>
+              <Text style={styles.popTextBottom}>
+                1. 시나에게 "나 사워할게"라고 말해보세요{' '}
+              </Text>
+              <TouchableOpacity
+                style={{margin: 5}}
+                onPress={() => this.setState({open: false})}>
+                <Text>확인했습니다!</Text>
+              </TouchableOpacity>
+            </View>
+          </Modal>
+        </ScrollView>
+      </ScreenWrapper>
     );
   }
 }

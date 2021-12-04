@@ -9,86 +9,89 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Modal from 'react-native-simple-modal';
+import {ScreenWrapper} from '../../common/wrapper';
 
 export default class Recommendation extends React.Component {
   state = {open: false};
   render() {
     return (
-      <ScrollView style={styles.container}>
-        <Text style={styles.title}>
-          {`현재 줄일 수 있는 탄소량 
+      <ScreenWrapper>
+        <ScrollView style={styles.container}>
+          <Text style={styles.title}>
+            {`현재 줄일 수 있는 탄소량 
 CO2 <> kg`}
-        </Text>
+          </Text>
 
-        <View style={styles.wrapContent}>
-          <TouchableOpacity onPress={() => this.setState({open: true})}>
-            <View style={styles.content}></View>
-            <Text style={styles.txt}>샤워</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.wrapContent}>
-          <TouchableOpacity onPress={() => this.setState({open: true})}>
-            <View style={styles.content}></View>
-            <Text style={styles.txt}>전기밥솥</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.wrapContent}>
-          <TouchableOpacity onPress={() => this.setState({open: true})}>
-            <View style={styles.content2}></View>
-            <Text style={styles.txt}>냉장고</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.wrapContent}>
-          <TouchableOpacity onPress={() => this.setState({open: true})}>
-            <View style={styles.content2}></View>
-            <Text style={styles.txt}>재활용</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.wrapContent}>
-          <TouchableOpacity onPress={() => this.setState({open: true})}>
-            <View style={styles.content3}></View>
-            <Text style={styles.txt}>에너지 아끼기</Text>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.wrapContent}>
-          <TouchableOpacity onPress={() => this.setState({open: true})}>
-            <View style={styles.content3}></View>
-            <Text style={styles.txt}>저탄소 제품 사용</Text>
-          </TouchableOpacity>
-        </View>
-
-        <Modal
-          offset={this.state.offset}
-          open={this.state.open}
-          modalDidClose={() => this.setState({open: false})}
-          style={{alignItems: 'center'}}>
-          <View>
-            <Text style={{fontSize: 20, marginBottom: 30}}>
-              샤워: kg 감소 가능
-            </Text>
-            <Text style={styles.popTextTop}>평균 배출량: %</Text>
-            <Text style={styles.popTextTop}>나의 배출량: %</Text>
-            <Text style={styles.popTextBottom}>
-              1. 시나에게 "나 사워할게"라고 말해보세요{' '}
-            </Text>
-            <Text style={styles.popTextBottom}>
-              2. 스마트미러에 샤워 타이머가 나타납니다!{' '}
-            </Text>
-            <Text style={styles.popTextBottom}>
-              3. 샤워 끝나고 시나에게 알려주세요!{' '}
-            </Text>
-            <TouchableOpacity
-              style={{margin: 5}}
-              onPress={() => this.setState({open: false})}>
-              <Text>확인했습니다!</Text>
+          <View style={styles.wrapContent}>
+            <TouchableOpacity onPress={() => this.setState({open: true})}>
+              <View style={styles.content}></View>
+              <Text style={styles.txt}>샤워</Text>
             </TouchableOpacity>
           </View>
-        </Modal>
-      </ScrollView>
+
+          <View style={styles.wrapContent}>
+            <TouchableOpacity onPress={() => this.setState({open: true})}>
+              <View style={styles.content}></View>
+              <Text style={styles.txt}>전기밥솥</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.wrapContent}>
+            <TouchableOpacity onPress={() => this.setState({open: true})}>
+              <View style={styles.content2}></View>
+              <Text style={styles.txt}>냉장고</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.wrapContent}>
+            <TouchableOpacity onPress={() => this.setState({open: true})}>
+              <View style={styles.content2}></View>
+              <Text style={styles.txt}>재활용</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.wrapContent}>
+            <TouchableOpacity onPress={() => this.setState({open: true})}>
+              <View style={styles.content3}></View>
+              <Text style={styles.txt}>에너지 아끼기</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.wrapContent}>
+            <TouchableOpacity onPress={() => this.setState({open: true})}>
+              <View style={styles.content3}></View>
+              <Text style={styles.txt}>저탄소 제품 사용</Text>
+            </TouchableOpacity>
+          </View>
+
+          <Modal
+            offset={this.state.offset}
+            open={this.state.open}
+            modalDidClose={() => this.setState({open: false})}
+            style={{alignItems: 'center'}}>
+            <View>
+              <Text style={{fontSize: 20, marginBottom: 30}}>
+                샤워: kg 감소 가능
+              </Text>
+              <Text style={styles.popTextTop}>평균 배출량: %</Text>
+              <Text style={styles.popTextTop}>나의 배출량: %</Text>
+              <Text style={styles.popTextBottom}>
+                1. 시나에게 "나 사워할게"라고 말해보세요{' '}
+              </Text>
+              <Text style={styles.popTextBottom}>
+                2. 스마트미러에 샤워 타이머가 나타납니다!{' '}
+              </Text>
+              <Text style={styles.popTextBottom}>
+                3. 샤워 끝나고 시나에게 알려주세요!{' '}
+              </Text>
+              <TouchableOpacity
+                style={{margin: 5}}
+                onPress={() => this.setState({open: false})}>
+                <Text>확인했습니다!</Text>
+              </TouchableOpacity>
+            </View>
+          </Modal>
+        </ScrollView>
+      </ScreenWrapper>
     );
   }
 }
