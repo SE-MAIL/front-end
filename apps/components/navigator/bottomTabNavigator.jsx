@@ -9,14 +9,35 @@ const bottomTab = createBottomTabNavigator();
 export function BottomTabNavigator() {
   return (
     <bottomTab.Navigator
-      backBehavior="history"
-      activeColor="#00203f"
-      inactiveColor="#a9a9a9"
-      barStyle={{backgroundColor: '#ffffff'}}
-      labeled={false}>
-      <bottomTab.Screen name="Home" component={Home} />
-      <bottomTab.Screen name="Recommendation" component={Recommendation} />
-      <bottomTab.Screen name="Profile" component={Profile} />
+      backBehavior={'history'}
+      tabBarS
+      screenOptions={{
+        tabBarActiveTintColor: 'white',
+        tabBarInactiveTintColor: '#3a3b3c',
+        tabBarStyle: {backgroundColor: 'black'},
+        tabBarShowLabel: false,
+      }}>
+      <bottomTab.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="Home"
+        component={Home}
+      />
+      <bottomTab.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="Recommendation"
+        component={Recommendation}
+      />
+      <bottomTab.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="Profile"
+        component={Profile}
+      />
     </bottomTab.Navigator>
   );
 }
