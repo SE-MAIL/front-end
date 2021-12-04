@@ -8,15 +8,29 @@ import {
   Button,
   SafeAreaView,
 } from 'react-native';
+import {useNavigation} from '@react-navigation/core';
 
 export default function Login() {
+  const navigation = useNavigation();
+  loginBtnClickListener = () => {
+    navigation.navigate('Login');
+  };
+
   return (
     <View style={styles.container}>
-      <Image style={styles.globe} source={require('../assets/logo2.png')} />
+      <Image
+        style={styles.globe}
+        source={require('../../../assets/logo2.png')}
+      />
       <View style={styles.input}>
         <TextInput style={styles.textInput} placeholder="아이디" />
         <TextInput style={styles.textInput} placeholder="비밀번호" />
-        <Button title="로그인" />
+        <Button
+          onPress={() => {
+            navigation.navigate('HomeNavigator');
+          }}
+          title="로그인"
+        />
       </View>
       <View style={styles.stack}>
         <Button title="비밀번호 찾기" />

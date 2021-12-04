@@ -6,7 +6,7 @@ export default function Home() {
     <View style={styles.container}>
       <Image
         style={styles.globe}
-        source={require('../assets/environmentw.png')}
+        source={require('../../../assets/environmentw.png')}
       />
       <Text style={styles.logo}>안녕하세요, 사용자님</Text>
       <Text

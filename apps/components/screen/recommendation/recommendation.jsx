@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import Modal from 'react-native-simple-modal';
 
-export default class Example extends React.Component {
+export default class Recommendation extends React.Component {
   state = {open: false};
   render() {
     return (

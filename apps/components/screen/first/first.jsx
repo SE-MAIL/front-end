@@ -1,17 +1,30 @@
 import React from 'react';
-import {Text, View, StyleSheet, Image} from 'react-native';
+import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/core';
 
 export default function First() {
+  const navigation = useNavigation();
+  loginBtnClickListener = () => {
+    navigation.navigate('Login');
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.logoSub}>모르는 사이에 조금씩 조금씩</Text>
       <Text style={styles.logo}>시나브로</Text>
       <Text style={styles.logoSub2}>Cinabro</Text>
-      <Image style={styles.first} source={require('../assets/start.png')} />
-      <Image
-        style={styles.second}
-        source={require('../assets/environmentw.png')}
-      />
+      <TouchableOpacity
+        onPress={() => {
+          loginBtnClickListener();
+        }}>
+        <Image
+          style={styles.first}
+          source={require('../../../assets/start.png')}
+        />
+        <Image
+          style={styles.second}
+          source={require('../../../assets/environmentw.png')}
+        />
+      </TouchableOpacity>
     </View>
   );
 }

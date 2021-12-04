@@ -26,7 +26,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
-    'arrow-parens': ['error', 'always'],
+    'arrow-parens': ['error', 'as-needed'],
     // production 환경에서는 on 으로 되어있어야 함.
     'no-console': 'off',
   },

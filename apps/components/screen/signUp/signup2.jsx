@@ -4,7 +4,10 @@ import {Text, View, StyleSheet, Image, TextInput, Button} from 'react-native';
 export default function SignUp() {
   return (
     <View style={styles.container}>
-      <Image style={styles.globe} source={require('../assets/logo2.png')} />
+      <Image
+        style={styles.globe}
+        source={require('../../../assets/logo2.png')}
+      />
       <View style={styles.input}>
         <TextInput style={styles.textInput} placeholder="이름" />
         <TextInput style={styles.textInput} placeholder="나이" />

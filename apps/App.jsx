@@ -1,8 +1,8 @@
 import React from 'react';
-import First from './components/screen/first/first';
+import MainNavigator from './components/navigator/mainNavigator';
 
 function App() {
-  return <First />;
+  return <MainNavigator />;
 }
 
 export default App;
