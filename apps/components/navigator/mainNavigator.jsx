@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import LoginNavigator from './loginNavigator';
-import HomeNavigator from './homeNavigator';
+import {BottomTabNavigator} from './bottomTabNavigator';
 
 const MainStackNavigator = createNativeStackNavigator();
 
@@ -18,8 +18,8 @@ function MainNavigator() {
           }}
         />
         <MainStackNavigator.Screen
-          name="HomeNavigator"
-          component={HomeNavigator}
+          name="BottomTabNavigator"
+          component={BottomTabNavigator}
           options={{
             headerShown: false,
           }}

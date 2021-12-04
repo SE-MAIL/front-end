@@ -27,7 +27,7 @@ export default function Login() {
         <TextInput style={styles.textInput} placeholder="비밀번호" />
         <Button
           onPress={() => {
-            navigation.navigate('HomeNavigator');
+            navigation.navigate('BottomTabNavigator');
           }}
           title="로그인"
         />
