@@ -7,22 +7,35 @@ import {
   TextInput,
   Button,
   SafeAreaView,
+  TouchableOpacity,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/core';
+import {
+  heightPercentage,
+  widthPercentage,
+} from '../../../assets/defualt/responsive';
+import {ScreenWrapper} from '../../common/wrapper';
 
 export default function Login() {
   const navigation = useNavigation();
   loginBtnClickListener = () => {
     navigation.navigate('Login');
   };
+  signUpBtnClickListener = () => {
+    navigation.navigate('SignUp');
+  };
 
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.globe}
-        source={require('../../../assets/logo2.png')}
-      />
-      <View style={styles.input}>
+    <ScreenWrapper>
+      <View style={styles.logoBox}>
+        <View style={styles.globe}>
+          <Image
+            style={styles.globe}
+            source={require('../../../assets/logo2.png')}
+          />
+        </View>
+      </View>
+      <View style={styles.textInputBox}>
         <TextInput style={styles.textInput} placeholder="아이디" />
         <TextInput style={styles.textInput} placeholder="비밀번호" />
         <Button
@@ -32,42 +45,55 @@ export default function Login() {
           title="로그인"
         />
       </View>
-      <View style={styles.stack}>
-        <Button title="비밀번호 찾기" />
-        <Button title="아이디 찾기" />
-        <Button title="회원가입 하기" />
+      <View style={styles.buttonBox}>
+        <View style={styles.stack}>
+          <TouchableOpacity style={styles.subButton}>
+            <Text style={styles.subButtonText}>비밀번호 찾기</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.subButton}>
+            <Text style={styles.subButtonText}>아이디 찾기</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              signUpBtnClickListener();
+            }}
+            style={styles.subButton}>
+            <Text style={styles.subButtonText}>회원가입 하기</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </ScreenWrapper>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#000000',
-    padding: 9,
   },
-  logo: {
-    margin: 0,
-    fontSize: 45,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: 'white',
+  logoBox: {
+    flex: 3,
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
   },
   globe: {
-    width: '50%',
-    height: '20%',
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginTop: heightPercentage(30),
+    width: widthPercentage(150),
+    height: heightPercentage(150),
     resizeMode: 'contain',
   },
+  textInputBox: {
+    flex: 3,
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+  },
   textInput: {
-    width: 200,
+    width: widthPercentage(300),
     marginBottom: 10,
     paddingHorizontal: 10,
-    height: 40,
+    height: heightPercentage(40),
     borderRadius: 10,
     borderColor: 'gray',
     borderWidth: 1,
@@ -79,11 +105,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  buttonBox: {
+    justifyContent: 'flex-start',
+    alignContent: 'center',
+    flex: 4,
+  },
   stack: {
-    width: 300,
-    height: 40,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+  },
+  subButton: {
+    height: heightPercentage(19),
+    marginRight: widthPercentage(5),
+  },
+  subButtonText: {
+    fontSize: 13,
+    color: 'gray',
   },
 });
