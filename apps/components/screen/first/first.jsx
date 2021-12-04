@@ -1,20 +1,17 @@
 import React from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import {Text, View, StyleSheet, Image} from 'react-native';
 
 export default function First() {
   return (
     <View style={styles.container}>
-      <Text style={styles.logoSub}>
-        모르는 사이에 조금씩 조금씩
-      </Text>
-      <Text style={styles.logo}>
-        시나브로
-      </Text>
-      <Text style={styles.logoSub2}>
-        Cinabro
-      </Text>
+      <Text style={styles.logoSub}>모르는 사이에 조금씩 조금씩</Text>
+      <Text style={styles.logo}>시나브로</Text>
+      <Text style={styles.logoSub2}>Cinabro</Text>
       <Image style={styles.first} source={require('../assets/start.png')} />
-      <Image style={styles.second} source={require('../assets/environmentw.png')} />
+      <Image
+        style={styles.second}
+        source={require('../assets/environmentw.png')}
+      />
     </View>
   );
 }
@@ -31,7 +28,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',
-    color:'#73bf69',
+    color: '#73bf69',
   },
   logo: {
     margin: 24,
@@ -64,5 +61,4 @@ const styles = StyleSheet.create({
     opacity: 0.3,
     transform: [{rotate: '-23deg'}],
   },
-  
 });

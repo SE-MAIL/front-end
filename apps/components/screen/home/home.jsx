@@ -1,25 +1,46 @@
 import React from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import {Text, View, StyleSheet, Image} from 'react-native';
 
 export default function Home() {
   return (
     <View style={styles.container}>
-      <Image style={styles.globe} source={require('../assets/environmentw.png')} />
-      <Text style={styles.logo}>
-        안녕하세요, 사용자님
-      </Text>
-      <Text style={{textAlign:'center', fontSize: 40, opacity: 0.4, color:'#16CA1C', marginBottom: -15,fontWeight:'bold',}}>
+      <Image
+        style={styles.globe}
+        source={require('../assets/environmentw.png')}
+      />
+      <Text style={styles.logo}>안녕하세요, 사용자님</Text>
+      <Text
+        style={{
+          textAlign: 'center',
+          fontSize: 40,
+          opacity: 0.4,
+          color: '#16CA1C',
+          marginBottom: -15,
+          fontWeight: 'bold',
+        }}>
         C02
       </Text>
-      <Text style={{textAlign:'center', fontSize: 70,fontWeight:'bold', color:'#16CA1C'}}>
+      <Text
+        style={{
+          textAlign: 'center',
+          fontSize: 70,
+          fontWeight: 'bold',
+          color: '#16CA1C',
+        }}>
         120kg
       </Text>
-      <Text style={{textAlign:'center', fontSize: 20,fontWeight:'bold', color:'#dbe1db', opacity: 0.5, marginTop: -10}}>
+      <Text
+        style={{
+          textAlign: 'center',
+          fontSize: 20,
+          fontWeight: 'bold',
+          color: '#dbe1db',
+          opacity: 0.5,
+          marginTop: -10,
+        }}>
         평균 배출량: 200kg
       </Text>
-      <Text style={styles.textUnder}>
-        월간 C02 배출량
-      </Text>
+      <Text style={styles.textUnder}>월간 C02 배출량</Text>
     </View>
   );
 }
@@ -35,7 +56,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',
-    color:'#73bf69',
+    color: '#73bf69',
   },
   globe: {
     width: '20%',
@@ -60,5 +81,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#888181',
   },
-  
 });
