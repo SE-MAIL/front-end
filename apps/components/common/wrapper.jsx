@@ -12,13 +12,10 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 const defaultStyle = StyleSheet.create({
   root: {
     flex: 1,
-    width: '100%',
-    alignItems: 'center',
     backgroundColor: 'black',
   },
   contents: {
     flex: 1,
-    alignItems: 'center',
   },
 });
 
