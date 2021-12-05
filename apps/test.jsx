@@ -1,32 +1,22 @@
-import React from 'react';
-import Modal from 'react-native-simple-modal';
-import {AppRegistry, Text, TouchableOpacity, View} from 'react-native';
+import React, {Component} from 'react';
+import {Platform, StyleSheet, Text, View} from 'react-native';
+import ProgressCircle from 'react-native-progress-circle'
  
-export default class Example extends React.Component {
-  state = {open: false};
-  render() {
-    return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center',backgroundColor:'pink'}}>
-      <TouchableOpacity onPress={() => this.setState({open: true})}>
-        <Text>◀</Text>
-      </TouchableOpacity>
-      <Modal
-        offset={this.state.offset}
-        open={this.state.open}
-        modalDidClose={() => this.setState({open: false})}
-        style={{alignItems: 'center'}}>
-        <View>
-          <Text style={{fontSize: 20, marginBottom: 10}}>샤워: kg 감소 가능</Text>
-          <TouchableOpacity
-            style={{margin: 5}}
-            onPress={() => this.setState({open: false})}>
-            <Text>확인했습니다!</Text>
-          </TouchableOpacity>
-        </View>
-      </Modal>
-    </View>
-    );
+export default class App extends Component {
+    render() {
+      return (
+        <View style={{ justifyContent : 'center',  height : 60,  alignItems : 'center', flexDirection: 'column', flex : 1 }} >
+            <ProgressCircle
+                percent={60}
+                radius={150}
+                borderWidth={30}
+                color="#16CA1C"
+                shadowColor="#FFF"
+                bgColor="#fff">
+                <Text style={{ fontSize: 60 , fontWeight : 'bold', color: '#16CA1C'}}>{'120kg'}</Text>
+                <Text style={{ fontSize: 18 , fontWeight : 'bold', opacity: 0.5}}>{'평균 배출량: 200kg'}</Text>
+            </ProgressCircle>
+          </View>
+      )
   }
 }
- 
-AppRegistry.registerComponent('ExampleModal', () => Example);
