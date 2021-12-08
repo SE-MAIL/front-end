@@ -59,18 +59,10 @@ export default class Profile extends React.Component {
             modalDidClose={() => this.setState({open: false})}
             style={{alignItems: 'center'}}>
             <View>
-              <Text style={{fontSize: 20, marginBottom: 30}}>
-                샤워: kg 감소 가능
-              </Text>
-              <Text style={styles.popTextTop}>평균 배출량: %</Text>
-              <Text style={styles.popTextTop}>나의 배출량: %</Text>
-              <Text style={styles.popTextBottom}>
-                1. 시나에게 "나 사워할게"라고 말해보세요{' '}
-              </Text>
               <TouchableOpacity
                 style={{margin: 5}}
                 onPress={() => this.setState({open: false})}>
-                <Text>확인했습니다!</Text>
+                <Text>확인</Text>
               </TouchableOpacity>
             </View>
           </Modal>

@@ -3,6 +3,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from '../screen/home/home';
 import Recommendation from '../screen/recommendation/recommendation';
 import Profile from '../screen/profile/profile';
+import Graph from '../screen/graph/graph';
+import Ionicons from 'react-native-vector-icons';
 
 const bottomTab = createBottomTabNavigator();
 
@@ -11,9 +13,16 @@ export function BottomTabNavigator() {
     <bottomTab.Navigator
       backBehavior={'history'}
       tabBarS
+      tabBarOptions={{
+        activeBackgroundColor: 'gray',
+        activeTintColor: 'white',
+        inactiveTintColor: '#3a3b3c',
+        style: {
+          backgroundColor: 'black'
+        },
+        labelPosition: 'beside-icon'
+      }}
       screenOptions={{
-        tabBarActiveTintColor: 'white',
-        tabBarInactiveTintColor: '#3a3b3c',
         tabBarStyle: {backgroundColor: 'black'},
         tabBarShowLabel: false,
       }}>
@@ -30,6 +39,13 @@ export function BottomTabNavigator() {
         }}
         name="Recommendation"
         component={Recommendation}
+      />
+      <bottomTab.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="Graph"
+        component={Graph}
       />
       <bottomTab.Screen
         options={{

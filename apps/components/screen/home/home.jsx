@@ -3,6 +3,7 @@ import {Text, View, StyleSheet, Image, Platform} from 'react-native';
 import {ScreenWrapper} from '../../common/wrapper';
 import ProgressCircle from 'react-native-progress-circle'
 
+
 export default function Home() {
   return (
     <ScreenWrapper>
@@ -13,7 +14,7 @@ export default function Home() {
         />
         <Text style={styles.logo}>안녕하세요, 사용자님</Text>
       </View>
-      <View style={{ justifyContent : 'center',  height : 10,  alignItems : 'center', flexDirection: 'column', flex : 0.8 }} >
+      <View style={{ justifyContent : 'center',  alignItems : 'center', flexDirection: 'column', flex : 2, }} >
             <ProgressCircle
                 percent={60}
                 radius={150}
@@ -27,6 +28,10 @@ export default function Home() {
             </ProgressCircle>
             <Text style={{ fontSize: 24, opacity: 0.8, color: '#fff',marginTop: 30}}>{'월간 C02 배출량'}</Text>
           </View>
+          <Image
+            style={styles.homeRecomend}
+            source={require('../../../assets/homeRecommend.png')}
+          />
       
     </ScreenWrapper>
   );
@@ -51,8 +56,18 @@ const styles = StyleSheet.create({
     transform: [{rotate: '-23deg'}],
   },
   logo: {
-    margin: 35,
+    margin: 40,
     fontSize: 30,
     color: 'white',
+  },
+  homeRecomend: {
+    flex: 1,
+    marginLeft: 20,
+    height: '80%',
+    width: '90%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    resizeMode: 'contain',
+    marginBottom: 0,
   },
 });
