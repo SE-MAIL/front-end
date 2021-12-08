@@ -5,16 +5,10 @@ export const baseAxios = axios.create({
 });
 baseAxios.defaults.headers.post['Content-Type'] = 'application/json';
 
-export const postSignIn = ({id = '', pw = ''}) => {
-  return baseAxios.post('manager/signIn', {
-    id,
-    password: pw,
-  });
-};
 
 //함수 네이밍 방법
 export const postLogin = (id, pw) => {
-  return baseAxios.post('/api/token/', {username: id, password: pw});
+  return baseAxios.post('/api/token', {username: id, password: pw});
 };
 
 // axios

@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     margin: 40,
-    fontSize: 30,
+    fontSize: 40,
     color: 'white',
   },
   homeRecomend: {

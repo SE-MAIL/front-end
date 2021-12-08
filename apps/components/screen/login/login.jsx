@@ -28,15 +28,17 @@ export default function Login() {
   loginBtnClickListener = () => {
     console.log(id);
     console.log(pw);
-    postLogin(id, pw)
+    // postLogin(id, pw)
+    axios.post('http://ec2-3-35-173-26.ap-northeast-2.compute.amazonaws.com:8080/api/token', {username:id, password:pw})
       .then(result => {
-        console.log(result);
-        navigation.navigate('Login');
+        console.log(JSON.stringify(result, null, 4));
+        navigation.navigate('BottomTabNavigator');
       })
       .catch(error => {
         console.log(JSON.stringify(error, null, 4));
         console.log(JSON.stringify(error.request, null, 4));
       });
+    console.log("dddddd")
   };
   signUpBtnClickListener = () => {
     navigation.navigate('SignUp');
