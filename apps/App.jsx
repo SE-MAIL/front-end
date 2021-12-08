@@ -5,7 +5,7 @@ import GraphDetails from './components/screen/graph/graphDetails'
 import GraphDetailsMonth from './components/screen/graph/graphDetailsMonth';
 
 function App() {
-  return <GraphDetailsMonth />;
+  return <MainNavigator />;
 }
 
 export default App;

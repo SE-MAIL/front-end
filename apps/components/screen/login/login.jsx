@@ -8,6 +8,7 @@ import {
   Button,
   SafeAreaView,
   TouchableOpacity,
+  CheckBox,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/core';
 import {
