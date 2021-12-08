@@ -17,6 +17,7 @@ export default function Graph() {
         width={Dimensions.get('window').width - 10}
         height={230}
         yAxisLabel={''}
+        fromZero={'true'}
         chartConfig={{
           backgroundColor: '#000',
           barPercentage: 0.8,

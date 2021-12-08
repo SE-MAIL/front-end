@@ -10,12 +10,12 @@ export default function Graph() {
             <Text style={styles.title}> 배출량 </Text>
                 <View style={styles.stack}>
                 <TouchableOpacity>
-                <View style={styles.dateBtn2}>
+                <View style={styles.dateBtn}>
                     <Text style={styles.dateBtnText}>일 </Text>
                 </View>
                 </TouchableOpacity>
                 <TouchableOpacity>
-                <View style={styles.dateBtn}>
+                <View style={styles.dateBtn2}>
                     <Text style={styles.dateBtnText}>월 </Text>
                 </View>
                 </TouchableOpacity>
@@ -25,8 +25,8 @@ export default function Graph() {
                 <View style={styles.barcontainer}>
                 <BarChart
         data={{
-          labels: ['12/2', '12/3', '12/4', '12/5', '12/6'],
-          datasets: [{ data: [4.3, 4.1, 2, 5.1, 6.3 ] }],
+          labels: ['8', '9', '10', '11', '12'],
+          datasets: [{ data: [178, 183, 212, 162, 171 ] }],
         }}
         width={Dimensions.get('window').width - 10}
         height={400}
