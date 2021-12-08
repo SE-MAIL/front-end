@@ -38,7 +38,6 @@ export default function Login() {
         console.log(JSON.stringify(error, null, 4));
         console.log(JSON.stringify(error.request, null, 4));
       });
-    console.log("dddddd")
   };
   signUpBtnClickListener = () => {
     navigation.navigate('SignUp');
@@ -61,6 +60,7 @@ export default function Login() {
           placeholder="아이디"
         />
         <TextInput
+          secureTextEntry={true}
           style={styles.textInput}
           onChangeText={str2 => setPw(str2)}
           placeholder="비밀번호"

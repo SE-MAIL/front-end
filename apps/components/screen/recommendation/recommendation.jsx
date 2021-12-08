@@ -7,12 +7,39 @@ import {
   StyleSheet,
   AppRegistry,
   TouchableOpacity,
+  Script,
 } from 'react-native';
 import Modal from 'react-native-simple-modal';
 import {ScreenWrapper} from '../../common/wrapper';
+import axios from 'axios';
+import {getEmissions} from '../../api/axios';
+import { getPersonaldata } from '../../api/axios';
 
 export default class Recommendation extends React.Component {
   state = {open: false};
+
+getEmissionsListener = () => {
+  getEmissions(idshower,starttime,endtime,takentime,emissions,sum,auth_user)
+  .then(result => {
+    console.log(JSON.stringify(result, null, 4));
+  })
+  .catch(error => {
+    console.log(JSON.stringify(error, null, 4));
+    console.log(JSON.stringify(error.request, null, 4));
+  });
+};
+
+getPersonaldataListener = () => {
+  getPersonaldata(id, targettime, reduction, auth_user)
+  .then(result => {
+    console.log(JSON.stringify(result, null, 4));
+  })
+  .catch(error => {
+    console.log(JSON.stringify(error, null, 4));
+    console.log(JSON.stringify(error.request, null, 4));
+  });
+};
+
   render() {
     return (
       <ScreenWrapper>
@@ -72,6 +99,7 @@ CO2 <> kg`}
               <Text style={{fontSize: 20, marginBottom: 30}}>
                 샤워: kg 감소 가능
               </Text>
+
               <Text style={styles.popTextTop}>평균 배출량: %</Text>
               <Text style={styles.popTextTop}>나의 배출량: %</Text>
               <Text style={styles.popTextBottom}>
