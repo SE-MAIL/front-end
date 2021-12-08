@@ -16,11 +16,27 @@ import {
   widthPercentage,
 } from '../../../assets/defualt/responsive';
 import {ScreenWrapper} from '../../common/wrapper';
+import {postLogin} from '../../api/axios';
+import axios from 'axios';
 
 export default function Login() {
   const navigation = useNavigation();
+
+  const [id, setId] = React.useState('');
+  const [pw, setPw] = React.useState('');
+
   loginBtnClickListener = () => {
-    navigation.navigate('Login');
+    console.log(id);
+    console.log(pw);
+    postLogin(id, pw)
+      .then(result => {
+        console.log(result);
+        navigation.navigate('Login');
+      })
+      .catch(error => {
+        console.log(JSON.stringify(error, null, 4));
+        console.log(JSON.stringify(error.request, null, 4));
+      });
   };
   signUpBtnClickListener = () => {
     navigation.navigate('SignUp');
@@ -37,11 +53,21 @@ export default function Login() {
         </View>
       </View>
       <View style={styles.textInputBox}>
-        <TextInput style={styles.textInput} placeholder="아이디" />
-        <TextInput style={styles.textInput} placeholder="비밀번호" />
-      <TouchableOpacity onPress={()=> navigation.navigate('BottomTabNavigator')} style={styles.blueButton}>
-        <Text style={styles.blue}>로그인</Text>
-      </TouchableOpacity>
+        <TextInput
+          style={styles.textInput}
+          onChangeText={str => setId(str)}
+          placeholder="아이디"
+        />
+        <TextInput
+          style={styles.textInput}
+          onChangeText={str2 => setPw(str2)}
+          placeholder="비밀번호"
+        />
+        <TouchableOpacity
+          onPress={() => loginBtnClickListener()}
+          style={styles.blueButton}>
+          <Text style={styles.blue}>로그인</Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.buttonBox}>
         <View style={styles.stack}>
@@ -138,5 +164,5 @@ const styles = StyleSheet.create({
   logincheck: {
     color: 'white',
     textAlign: 'left',
-  }
+  },
 });
