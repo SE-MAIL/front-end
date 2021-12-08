@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, {Component} from 'react';
+import React from 'react';
+import { useState } from 'react';
 import {
   View,
   Text,
@@ -7,20 +8,25 @@ import {
   StyleSheet,
   AppRegistry,
   TouchableOpacity,
-  Script,
 } from 'react-native';
 import Modal from 'react-native-simple-modal';
 import {ScreenWrapper} from '../../common/wrapper';
 import axios from 'axios';
-import {getEmissions} from '../../api/axios';
+import {baseAxios} from '../../api/axios';
 import { getPersonaldata } from '../../api/axios';
+import { getEmissions } from '../../api/axios';
+import { useToken } from '../../context/tokenContext';
 
-export default class Recommendation extends React.Component {
-  state = {open: false};
 
-getEmissionsListener = () => {
+export default function Recommendation() {
+  const [open, setOpen] = useState(false);
+  const { token, setToken } = useToken();
+
+
+const getEmissionsListener = () => {
   getEmissions(idshower,starttime,endtime,takentime,emissions,sum,auth_user)
   .then(result => {
+    baseAxios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     console.log(JSON.stringify(result, null, 4));
   })
   .catch(error => {
@@ -29,9 +35,10 @@ getEmissionsListener = () => {
   });
 };
 
-getPersonaldataListener = () => {
-  getPersonaldata(id, targettime, reduction, auth_user)
+const getPersonaldataListener = () => {
+  getPersonaldata()
   .then(result => {
+    baseAxios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     console.log(JSON.stringify(result, null, 4));
   })
   .catch(error => {
@@ -40,7 +47,6 @@ getPersonaldataListener = () => {
   });
 };
 
-  render() {
     return (
       <ScreenWrapper>
         <ScrollView style={styles.container}>
@@ -50,50 +56,49 @@ CO2 <> kg`}
           </Text>
 
           <View style={styles.wrapContent}>
-            <TouchableOpacity onPress={() => this.setState({open: true})}>
+            <TouchableOpacity onPress={() => setOpen(true), getEmissions()}>
               <View style={styles.content}></View>
               <Text style={styles.txt}>샤워</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.wrapContent}>
-            <TouchableOpacity onPress={() => this.setState({open: true})}>
+            <TouchableOpacity>
               <View style={styles.content}></View>
               <Text style={styles.txt}>전기밥솥</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.wrapContent}>
-            <TouchableOpacity onPress={() => this.setState({open: true})}>
+            <TouchableOpacity>
               <View style={styles.content2}></View>
               <Text style={styles.txt}>냉장고</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.wrapContent}>
-            <TouchableOpacity onPress={() => this.setState({open: true})}>
+            <TouchableOpacity>
               <View style={styles.content2}></View>
               <Text style={styles.txt}>재활용</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.wrapContent}>
-            <TouchableOpacity onPress={() => this.setState({open: true})}>
+            <TouchableOpacity>
               <View style={styles.content3}></View>
               <Text style={styles.txt}>에너지 아끼기</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.wrapContent}>
-            <TouchableOpacity onPress={() => this.setState({open: true})}>
+            <TouchableOpacity>
               <View style={styles.content3}></View>
               <Text style={styles.txt}>저탄소 제품 사용</Text>
             </TouchableOpacity>
           </View>
 
           <Modal
-            offset={this.state.offset}
-            open={this.state.open}
-            modalDidClose={() => this.setState({open: false})}
+            open={false}
+            modalDidClose={() => setOpen(false)}
             style={{alignItems: 'center'}}>
             <View>
               <Text style={{fontSize: 20, marginBottom: 30}}>
@@ -113,7 +118,7 @@ CO2 <> kg`}
               </Text>
               <TouchableOpacity
                 style={{margin: 5}}
-                onPress={() => this.setState({open: false})}>
+                onPress={() => setOpen(false)}>
                 <Text>확인했습니다!</Text>
               </TouchableOpacity>
             </View>
@@ -122,7 +127,7 @@ CO2 <> kg`}
       </ScreenWrapper>
     );
   }
-}
+
 
 const styles = StyleSheet.create({
   container: {
