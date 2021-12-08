@@ -12,7 +12,9 @@ export default function SignUp() {
         <TextInput style={styles.textInput} placeholder="이름" />
         <TextInput style={styles.textInput} placeholder="나이" />
         <TextInput style={styles.textInput} placeholder="성별" />
-        <Button title="회원가입" />
+        <TouchableOpacity style={styles.blueButton}>
+        <Text style={styles.blue}>회원가입</Text>
+      </TouchableOpacity>
       </View>
     </View>
   );
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   textInput: {
-    width: 200,
+    width: 250,
     marginBottom: 10,
     paddingHorizontal: 10,
     height: 40,
@@ -63,5 +65,19 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  blueButton: {
+    backgroundColor: '#3388FF',
+    color: 'white',
+    width: '82%',
+    borderRadius: 8,
+    height: 30,
+  },
+  blue: {
+    fontSize: 14,
+    color: 'white',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginTop: 5,
   },
 });

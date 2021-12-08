@@ -38,12 +38,9 @@ export default function Login() {
       <View style={styles.textInputBox}>
         <TextInput style={styles.textInput} placeholder="아이디" />
         <TextInput style={styles.textInput} placeholder="비밀번호" />
-        <Button
-          onPress={() => {
-            navigation.navigate('BottomTabNavigator');
-          }}
-          title="로그인"
-        />
+      <TouchableOpacity onPress={()=> navigation.navigate('BottomTabNavigator')} style={styles.blueButton}>
+        <Text style={styles.blue}>로그인</Text>
+      </TouchableOpacity>
       </View>
       <View style={styles.buttonBox}>
         <View style={styles.stack}>
@@ -122,5 +119,19 @@ const styles = StyleSheet.create({
   subButtonText: {
     fontSize: 13,
     color: 'gray',
+  },
+  blueButton: {
+    backgroundColor: '#3388FF',
+    color: 'white',
+    width: '77%',
+    borderRadius: 8,
+    height: 32,
+  },
+  blue: {
+    fontSize: 14,
+    color: 'white',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginTop: 5,
   },
 });

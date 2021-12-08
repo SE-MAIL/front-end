@@ -4,6 +4,7 @@ import SignUp from '../screen/signUp/signup';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import First from '../screen/first/first';
 import Join from '../screen/signUp/join';
+import SignUp2 from '../screen/signUp/signup2';
 
 const LoginStack = createNativeStackNavigator();
 
@@ -34,6 +35,13 @@ function LoginNavigator() {
       <LoginStack.Screen
         name="Join"
         component={Join}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <LoginStack.Screen
+        name="SignUp2"
+        component={SignUp2}
         options={{
           headerShown: false,
         }}

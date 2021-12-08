@@ -15,7 +15,9 @@ export default function Join() {
           <TextInput style={styles.textInput} placeholder="나이" />
           <TextInput style={styles.textInput} placeholder="성별" />
           <TextInput style={styles.textInput} placeholder="가구 ID" />
-          <Button title="등록된 가구에 참여하기" />
+          <TouchableOpacity style={styles.blueButton}>
+        <Text style={styles.blue}>등록된 가구에 참여하기</Text>
+      </TouchableOpacity>
         </View>
       </View>
     </ScreenWrapper>
@@ -60,5 +62,19 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  blueButton: {
+    backgroundColor: '#3388FF',
+    color: 'white',
+    width: '65%',
+    borderRadius: 8,
+    height: 30,
+  },
+  blue: {
+    fontSize: 14,
+    color: 'white',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginTop: 5,
   },
 });
