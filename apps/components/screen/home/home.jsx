@@ -3,7 +3,26 @@ import {Text, View, StyleSheet, Image, Platform} from 'react-native';
 import {ScreenWrapper} from '../../common/wrapper';
 import ProgressCircle from 'react-native-progress-circle';
 
+
 export default function Home() {
+
+  // const [home,Sethome] = useState();
+
+  // const getHome = () => {
+  //   getHome(token)
+  //     .then(result => {
+  //       const {} = 
+  //       console.log('getHome()');
+  //       console.log(home);
+  //       Sethome(home);
+  //       console.log(JSON.stringify(result, null, 4));
+  //     })
+  //     .catch(error => {
+  //       console.log(JSON.stringify(error, null, 4));
+  //       console.log(JSON.stringify(error.request, null, 4));
+  //     });
+  // };
+
   return (
     <ScreenWrapper>
       <View style={styles.container}>
@@ -22,6 +41,7 @@ export default function Home() {
         }}>
         <ProgressCircle
           percent={60}
+          //percent={home}
           radius={150}
           borderWidth={10}
           color="#16CA1C"

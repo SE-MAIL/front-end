@@ -31,6 +31,15 @@ export const getPersonaldata = (token) => {
   }
   });
 };
+// export const getHome = (token) => {
+//   console.log(token);
+//   console.log('getHome()');
+//   return baseAxios.get('', {
+//     headers: {
+//       Authorization : `Bearer ${token}`
+//     }
+//   });
+// };
 
 // axios
 //   .post('/user', {
