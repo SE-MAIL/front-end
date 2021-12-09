@@ -167,7 +167,8 @@ const styles = StyleSheet.create({
     flex: 0.1,
     marginBottom: 0,
     color: 'white',
-    fontSize: 24,
+    fontSize: 26,
+    marginBottom: -30,
   },
   txt: {
     width: '100%',

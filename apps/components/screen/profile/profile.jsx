@@ -18,7 +18,7 @@ export default class Profile extends React.Component {
       <ScreenWrapper>
         <ScrollView style={styles.container}>
           <Text style={styles.title}>프로필 설정</Text>
-          <Text style={styles.title}>등록된 가구원 수 4명</Text>
+          <Text style={styles.title}>현재 등록된 가구원 수 4명</Text>
 
           <View style={styles.wrapContent}>
             <TouchableOpacity onPress={() => this.setState({open: true})}>
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 50,
     flex: 0.1,
-    marginBottom: 5,
+    marginBottom: -15,
     color: 'white',
     fontSize: 26,
   },
@@ -101,8 +101,8 @@ const styles = StyleSheet.create({
   },
   add: {
     width: '100%',
-    fontSize: 12,
-    marginLeft: 22,
+    fontSize: 13,
+    marginLeft: 20,
     marginTop: -22,
     color: 'white',
   },
