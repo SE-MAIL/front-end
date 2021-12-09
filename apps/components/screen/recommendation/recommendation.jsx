@@ -8,6 +8,7 @@ import {
   StyleSheet,
   AppRegistry,
   TouchableOpacity,
+  LogBox,
 } from 'react-native';
 import Modal from 'react-native-simple-modal';
 import {ScreenWrapper} from '../../common/wrapper';
@@ -18,41 +19,43 @@ import {getShower} from '../../api/axios';
 import {useToken} from '../../context/tokenContext';
 
 export default function Recommendation() {
+  LogBox.ignoreLogs(['Animated: `useNativeDriver` was not specified.']);
   const [open, setOpen] = useState(false);
   const {token, setToken} = useToken();
-  const [sum, setSum ] = useState();
-  const [reduction, setReduction ] = useState();
-
+  const [sum, setSum] = useState();
+  const [reduction, setReduction] = useState();
+  const [ave, setAve] = useState();
 
   const getShowerListener = () => {
     setOpen(true);
     getShower(token)
       .then(result => {
-        const {sum} = result.data
+        const {sum} = result.data;
         console.log('getShowerResult');
         console.log(sum);
         let now = new Date();
         let todayDate = now.getDate();
         console.log(todayDate);
-        setSum(sum/todayDate);
+        setSum(sum / todayDate);
+        setAve(2130);
         console.log(JSON.stringify(result, null, 4));
       })
       .catch(error => {
-        console.log('error')
+        console.log('error');
         console.log(JSON.stringify(error, null, 4));
         console.log(JSON.stringify(error.request, null, 4));
       });
-      getPersonaldataListener();
+    getPersonaldataListener();
   };
 
   const getPersonaldataListener = () => {
     getPersonaldata(token)
       .then(result => {
         //초당 1.8g 배출
-        const {reduction} = result.data
+        const {reduction} = result.data;
         console.log('getPersonaldata');
         console.log(reduction);
-        setReduction(parseInt(reduction/1.8));
+        setReduction(parseInt(reduction / 1.8));
         console.log(JSON.stringify(result, null, 4));
       })
       .catch(error => {
@@ -67,9 +70,7 @@ export default function Recommendation() {
   return (
     <ScreenWrapper>
       <ScrollView style={styles.container}>
-        <Text style={styles.title}>
-          {`탄소배출 줄이기 : 추천행동`}
-        </Text>
+        <Text style={styles.title}>{`탄소배출 줄이기 : 추천행동`}</Text>
 
         <View style={styles.wrapContent}>
           <TouchableOpacity onPress={() => getShowerListener()}>
@@ -116,31 +117,52 @@ export default function Recommendation() {
           open={open}
           modalDidClose={() => setOpen(false)}
           modalStyle={{
-            backgroundColor: "#7BA9CC",
+            backgroundColor: '#7BA9CC',
             borderRadius: 10,
             marginBottom: '130%',
           }}
-          style={{alignItems: 'center', backgroundColor:'#000'}}>
+          style={{alignItems: 'center', backgroundColor: '#000'}}>
           <View>
-            <Text style={{fontSize: 23, marginBottom: 20,padding: 5,color: '#fff',fontWeight:'bold'}}>
+            <Text
+              style={{
+                fontSize: 23,
+                marginBottom: 20,
+                padding: 5,
+                color: '#fff',
+                fontWeight: 'bold',
+              }}>
               샤워 - {reduction}g 배출감소 가능
             </Text>
 
-            <Text style={styles.popTextTop}>평균 배출량: 1,130g</Text>
+            <Text style={styles.popTextTop}>평균 배출량: {ave}g</Text>
             <Text style={styles.popTextTop}>나의 배출량: {sum}g</Text>
             <Text style={styles.popTextBottom}>
-              ①  시나에게 "나 사워할게"라고 말해보세요{' '}
+              ① 시나에게 "나 사워할게"라고 말해보세요{' '}
             </Text>
             <Text style={styles.popTextBottom}>
-              ②  스마트미러에 샤워 타이머가 나타납니다!{' '}
+              ② 스마트미러에 샤워 타이머가 나타납니다!{' '}
             </Text>
             <Text style={styles.popTextBottom}>
-              ③  샤워 끝나고 시나에게 알려주세요!{' '}
+              ③ 샤워 끝나고 시나에게 알려주세요!{' '}
             </Text>
             <TouchableOpacity
-              style={{margin: 15, backgroundColor:'#0044FF',height: 35,borderRadius:5,}}
+              style={{
+                margin: 15,
+                backgroundColor: '#0044FF',
+                height: 35,
+                borderRadius: 5,
+              }}
               onPress={() => setOpen(false)}>
-              <Text style={{textAlign: 'center',color:'white',fontSize:14,paddingTop:7,fontWeight:'bold'}}>확인했습니다!</Text>
+              <Text
+                style={{
+                  textAlign: 'center',
+                  color: 'white',
+                  fontSize: 14,
+                  paddingTop: 7,
+                  fontWeight: 'bold',
+                }}>
+                확인했습니다!
+              </Text>
             </TouchableOpacity>
           </View>
         </Modal>

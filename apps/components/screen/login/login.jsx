@@ -18,7 +18,7 @@ import {
 import {ScreenWrapper} from '../../common/wrapper';
 import {postLogin} from '../../api/axios';
 import axios from 'axios';
-import { useToken } from '../../context/tokenContext';
+import {useToken} from '../../context/tokenContext';
 
 export default function Login() {
   const navigation = useNavigation();
@@ -85,7 +85,7 @@ export default function Login() {
             <Text style={styles.subButtonText}>비밀번호 찾기</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.subButton}>
-            <Text style={styles.subButtonText}>s아이디 찾기</Text>
+            <Text style={styles.subButtonText}>아이디 찾기</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     width: widthPercentage(300),
     marginBottom: 10,
     paddingHorizontal: 10,
-    height: heightPercentage(40),
+    height: heightPercentage(45),
     borderRadius: 10,
     borderColor: 'gray',
     borderWidth: 1,
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   subButton: {
-    height: heightPercentage(19),
+    height: heightPercentage(29),
     marginRight: widthPercentage(5),
   },
   subButtonText: {

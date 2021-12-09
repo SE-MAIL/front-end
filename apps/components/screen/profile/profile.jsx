@@ -23,27 +23,27 @@ export default class Profile extends React.Component {
           <View style={styles.wrapContent}>
             <TouchableOpacity onPress={() => this.setState({open: true})}>
               <View style={styles.content}></View>
-              <Text style={styles.txt}>구성원1</Text>
+              <Text style={styles.txt}>최하영</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.wrapContent}>
             <TouchableOpacity onPress={() => this.setState({open: true})}>
               <View style={styles.content}></View>
-              <Text style={styles.txt}>구성원2</Text>
+              <Text style={styles.txt}>고병찬</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.wrapContent}>
             <TouchableOpacity onPress={() => this.setState({open: true})}>
               <View style={styles.content}></View>
-              <Text style={styles.txt}>구성원3</Text>
+              <Text style={styles.txt}>윤창일</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.wrapContent}>
             <TouchableOpacity onPress={() => this.setState({open: true})}>
               <View style={styles.content}></View>
-              <Text style={styles.txt}>구성원4</Text>
+              <Text style={styles.txt}>장형준</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.wrapContent}>
