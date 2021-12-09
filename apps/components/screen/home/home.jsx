@@ -76,8 +76,14 @@ const styles = StyleSheet.create({
     transform: [{rotate: '-23deg'}],
   },
   logo: {
-    margin: 40,
-    fontSize: 40,
+    flex: 1,
+    textAlign: 'center',
+    height: '50%',
+    width: '100%',
+    margin: 0,
+    paddingTop: 40,
+    paddingRight: 15,
+    fontSize: 32,
     color: 'white',
   },
   homeRecomend: {

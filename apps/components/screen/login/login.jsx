@@ -18,12 +18,14 @@ import {
 import {ScreenWrapper} from '../../common/wrapper';
 import {postLogin} from '../../api/axios';
 import axios from 'axios';
+import { useToken } from '../../context/tokenContext';
 
 export default function Login() {
   const navigation = useNavigation();
 
   const [id, setId] = React.useState('');
   const [pw, setPw] = React.useState('');
+  const {token, setToken} = useToken();
 
   loginBtnClickListener = () => {
     console.log(id);
@@ -35,6 +37,8 @@ export default function Login() {
         {username: id, password: pw},
       )
       .then(result => {
+        const {refresh, access} = result.data;
+        setToken(access);
         console.log(JSON.stringify(result, null, 4));
         navigation.navigate('BottomTabNavigator');
       })
@@ -70,7 +74,7 @@ export default function Login() {
           placeholder="비밀번호"
         />
         <TouchableOpacity
-          onPress={() => navigation.navigate('BottomTabNavigator')}
+          onPress={() => loginBtnClickListener()}
           style={styles.blueButton}>
           <Text style={styles.blue}>로그인</Text>
         </TouchableOpacity>
@@ -81,7 +85,7 @@ export default function Login() {
             <Text style={styles.subButtonText}>비밀번호 찾기</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.subButton}>
-            <Text style={styles.subButtonText}>아이디 찾기</Text>
+            <Text style={styles.subButtonText}>s아이디 찾기</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {

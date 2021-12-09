@@ -43,13 +43,13 @@ export default function Graph() {
                 <View style={styles.container}>
                 <Text style={styles.title2}> 배출량 비교 </Text>
                 <Text style={styles.content}>
-                     당      월                             100kg
+                     당      월                             171kg
                 </Text>
                 <Text style={styles.content}>
-                     전      월                             100kg
+                     전      월                             162kg
                 </Text>
                 <Text style={styles.content}>
-                     작년동월                           100kg
+                     작년동월                           210kg
                 </Text>
             </View>
             </ScreenWrapper>

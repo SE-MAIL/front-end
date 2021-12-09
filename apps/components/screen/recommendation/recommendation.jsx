@@ -21,22 +21,23 @@ export default function Recommendation() {
   const [open, setOpen] = useState(false);
   const {token, setToken} = useToken();
 
-  const getEmissionsListener = () => {
-    getShower()
+  const getShowerListener = () => {
+    setOpen(true);
+    getShower(token)
       .then(result => {
-        baseAxios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        console.log('getShowerResult');
         console.log(JSON.stringify(result, null, 4));
       })
       .catch(error => {
+        console.log('errorerrorerror')
         console.log(JSON.stringify(error, null, 4));
         console.log(JSON.stringify(error.request, null, 4));
       });
   };
 
   const getPersonaldataListener = () => {
-    getPersonaldata()
+    getPersonaldata(token)
       .then(result => {
-        baseAxios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         console.log(JSON.stringify(result, null, 4));
       })
       .catch(error => {
@@ -46,8 +47,7 @@ export default function Recommendation() {
   };
 
   const showerClickListener = () => {
-    setOpen(true);
-    getShower();
+    getShower(token);
   };
   return (
     <ScreenWrapper>
@@ -58,7 +58,7 @@ CO2 <> kg`}
         </Text>
 
         <View style={styles.wrapContent}>
-          <TouchableOpacity onPress={() => showerClickListener()}>
+          <TouchableOpacity onPress={() => getShowerListener()}>
             <View style={styles.content}></View>
             <Text style={styles.txt}>샤워</Text>
           </TouchableOpacity>
@@ -101,27 +101,32 @@ CO2 <> kg`}
         <Modal
           open={open}
           modalDidClose={() => setOpen(false)}
-          style={{alignItems: 'center'}}>
+          modalStyle={{
+            backgroundColor: "#7BA9CC",
+            borderRadius: 10,
+            marginBottom: '130%',
+          }}
+          style={{alignItems: 'center', backgroundColor:'#000'}}>
           <View>
-            <Text style={{fontSize: 20, marginBottom: 30}}>
+            <Text style={{fontSize: 20, marginBottom: 20,padding: 5,color: '#fff',fontWeight:'bold'}}>
               샤워: kg 감소 가능
             </Text>
 
-            <Text style={styles.popTextTop}>평균 배출량: %</Text>
-            <Text style={styles.popTextTop}>나의 배출량: %</Text>
+            <Text style={styles.popTextTop}>평균 배출량: </Text>
+            <Text style={styles.popTextTop}>나의 배출량: </Text>
             <Text style={styles.popTextBottom}>
-              1. 시나에게 "나 사워할게"라고 말해보세요{' '}
+              ①  시나에게 "나 사워할게"라고 말해보세요{' '}
             </Text>
             <Text style={styles.popTextBottom}>
-              2. 스마트미러에 샤워 타이머가 나타납니다!{' '}
+              ②  스마트미러에 샤워 타이머가 나타납니다!{' '}
             </Text>
             <Text style={styles.popTextBottom}>
-              3. 샤워 끝나고 시나에게 알려주세요!{' '}
+              ③  샤워 끝나고 시나에게 알려주세요!{' '}
             </Text>
             <TouchableOpacity
-              style={{margin: 5}}
+              style={{margin: 15, backgroundColor:'#0044FF',height: 35,borderRadius:5,}}
               onPress={() => setOpen(false)}>
-              <Text>확인했습니다!</Text>
+              <Text style={{textAlign: 'center',color:'white',fontSize:14,paddingTop:7,fontWeight:'bold'}}>확인했습니다!</Text>
             </TouchableOpacity>
           </View>
         </Modal>
@@ -182,8 +187,16 @@ const styles = StyleSheet.create({
   popTextTop: {
     marginBottom: 20,
     fontSize: 26,
+    margin: 5,
+    color: '#fff',
+    fontWeight: 'bold',
   },
   popTextBottom: {
     marginBottom: 10,
+    paddingTop: 10,
+    fontSize: 14,
+    margin: 5,
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });
