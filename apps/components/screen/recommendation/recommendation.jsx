@@ -20,24 +20,39 @@ import {useToken} from '../../context/tokenContext';
 export default function Recommendation() {
   const [open, setOpen] = useState(false);
   const {token, setToken} = useToken();
+  const [sum, setSum ] = useState();
+  const [reduction, setReduction ] = useState();
+
 
   const getShowerListener = () => {
     setOpen(true);
     getShower(token)
       .then(result => {
+        const {sum} = result.data
         console.log('getShowerResult');
+        console.log(sum);
+        let now = new Date();
+        let todayDate = now.getDate();
+        console.log(todayDate);
+        setSum(sum/todayDate);
         console.log(JSON.stringify(result, null, 4));
       })
       .catch(error => {
-        console.log('errorerrorerror')
+        console.log('error')
         console.log(JSON.stringify(error, null, 4));
         console.log(JSON.stringify(error.request, null, 4));
       });
+      getPersonaldataListener();
   };
 
   const getPersonaldataListener = () => {
     getPersonaldata(token)
       .then(result => {
+        //초당 1.8g 배출
+        const {reduction} = result.data
+        console.log('getPersonaldata');
+        console.log(reduction);
+        setReduction(parseInt(reduction/1.8));
         console.log(JSON.stringify(result, null, 4));
       })
       .catch(error => {
@@ -53,8 +68,7 @@ export default function Recommendation() {
     <ScreenWrapper>
       <ScrollView style={styles.container}>
         <Text style={styles.title}>
-          {`현재 줄일 수 있는 탄소량 
-CO2 <> kg`}
+          {`탄소배출 줄이기 : 추천행동`}
         </Text>
 
         <View style={styles.wrapContent}>
@@ -108,12 +122,12 @@ CO2 <> kg`}
           }}
           style={{alignItems: 'center', backgroundColor:'#000'}}>
           <View>
-            <Text style={{fontSize: 20, marginBottom: 20,padding: 5,color: '#fff',fontWeight:'bold'}}>
-              샤워: kg 감소 가능
+            <Text style={{fontSize: 23, marginBottom: 20,padding: 5,color: '#fff',fontWeight:'bold'}}>
+              샤워 - {reduction}g 배출감소 가능
             </Text>
 
-            <Text style={styles.popTextTop}>평균 배출량: </Text>
-            <Text style={styles.popTextTop}>나의 배출량: </Text>
+            <Text style={styles.popTextTop}>평균 배출량: 1,130g</Text>
+            <Text style={styles.popTextTop}>나의 배출량: {sum}g</Text>
             <Text style={styles.popTextBottom}>
               ①  시나에게 "나 사워할게"라고 말해보세요{' '}
             </Text>
@@ -144,16 +158,16 @@ const styles = StyleSheet.create({
   wrapContent: {
     width: '100%',
     height: '5%',
-    paddingBottom: '33%',
+    paddingBottom: '32%',
     backgroundColor: 'black',
   },
   title: {
     width: '100%',
     height: 50,
     flex: 0.1,
-    marginBottom: 10,
+    marginBottom: 0,
     color: 'white',
-    fontSize: 26,
+    fontSize: 24,
   },
   txt: {
     width: '100%',
