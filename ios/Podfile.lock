@@ -285,6 +285,8 @@ PODS:
     - React
   - RNVectorIcons (9.0.0):
     - React-Core
+  - RNCMaskedView (0.1.11):
+    - React
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -324,6 +326,8 @@ DEPENDENCIES:
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
+
+  - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -399,6 +403,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-svg"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
+  RNCMaskedView:
+    :path: "../node_modules/@react-native-community/masked-view"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -422,6 +428,7 @@ SPEC CHECKSUMS:
   React-jsinspector: d9c8eb0b53f0da206fed56612b289fec84991157
   React-logger: e522e76fa3e9ec3e7d7115b49485cc065cf4ae06
   react-native-safe-area-context: 584dc04881deb49474363f3be89e4ca0e854c057
+
   React-perflogger: 73732888d37d4f5065198727b167846743232882
   React-RCTActionSheet: 96c6d774fa89b1f7c59fc460adc3245ba2d7fd79
   React-RCTAnimation: 8940cfd3a8640bd6f6372150dbdb83a79bcbae6c
@@ -438,6 +445,7 @@ SPEC CHECKSUMS:
   RNScreens: 03ba504f8c98607ad1f07808e71040e0afa335ec
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
   RNVectorIcons: 4143ba35feebab8fdbe6bc43d1e776b393d47ac8
+  RNCMaskedView: f127cd9652acfa31b91dcff613e07ba18b774db6
   Yoga: 32a18c0e845e185f4a2a66ec76e1fd1f958f22fa
 
 PODFILE CHECKSUM: 59b332adf83038d78afd18f1ea59da03a8828abe
