@@ -29,7 +29,11 @@ export default function Login() {
     console.log(id);
     console.log(pw);
     // postLogin(id, pw)
-    axios.post('http://ec2-3-35-173-26.ap-northeast-2.compute.amazonaws.com:8080/api/token', {username:id, password:pw})
+    axios
+      .post(
+        'http://ec2-3-35-173-26.ap-northeast-2.compute.amazonaws.com:8080/api/token',
+        {username: id, password: pw},
+      )
       .then(result => {
         console.log(JSON.stringify(result, null, 4));
         navigation.navigate('BottomTabNavigator');
@@ -66,7 +70,7 @@ export default function Login() {
           placeholder="비밀번호"
         />
         <TouchableOpacity
-          onPress={() => loginBtnClickListener()}
+          onPress={() => navigation.navigate('BottomTabNavigator')}
           style={styles.blueButton}>
           <Text style={styles.blue}>로그인</Text>
         </TouchableOpacity>

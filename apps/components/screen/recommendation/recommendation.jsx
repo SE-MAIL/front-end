@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
-import { useState } from 'react';
+import {useState} from 'react';
 import {
   View,
   Text,
@@ -13,121 +13,122 @@ import Modal from 'react-native-simple-modal';
 import {ScreenWrapper} from '../../common/wrapper';
 import axios from 'axios';
 import {baseAxios} from '../../api/axios';
-import { getPersonaldata } from '../../api/axios';
-import { getEmissions } from '../../api/axios';
-import { useToken } from '../../context/tokenContext';
-
+import {getPersonaldata} from '../../api/axios';
+import {getShower} from '../../api/axios';
+import {useToken} from '../../context/tokenContext';
 
 export default function Recommendation() {
   const [open, setOpen] = useState(false);
-  const { token, setToken } = useToken();
+  const {token, setToken} = useToken();
 
+  const getEmissionsListener = () => {
+    getShower()
+      .then(result => {
+        baseAxios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        console.log(JSON.stringify(result, null, 4));
+      })
+      .catch(error => {
+        console.log(JSON.stringify(error, null, 4));
+        console.log(JSON.stringify(error.request, null, 4));
+      });
+  };
 
-const getEmissionsListener = () => {
-  getEmissions(idshower,starttime,endtime,takentime,emissions,sum,auth_user)
-  .then(result => {
-    baseAxios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-    console.log(JSON.stringify(result, null, 4));
-  })
-  .catch(error => {
-    console.log(JSON.stringify(error, null, 4));
-    console.log(JSON.stringify(error.request, null, 4));
-  });
-};
+  const getPersonaldataListener = () => {
+    getPersonaldata()
+      .then(result => {
+        baseAxios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        console.log(JSON.stringify(result, null, 4));
+      })
+      .catch(error => {
+        console.log(JSON.stringify(error, null, 4));
+        console.log(JSON.stringify(error.request, null, 4));
+      });
+  };
 
-const getPersonaldataListener = () => {
-  getPersonaldata()
-  .then(result => {
-    baseAxios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-    console.log(JSON.stringify(result, null, 4));
-  })
-  .catch(error => {
-    console.log(JSON.stringify(error, null, 4));
-    console.log(JSON.stringify(error.request, null, 4));
-  });
-};
-
-    return (
-      <ScreenWrapper>
-        <ScrollView style={styles.container}>
-          <Text style={styles.title}>
-            {`현재 줄일 수 있는 탄소량 
+  const showerClickListener = () => {
+    setOpen(true);
+    getShower();
+  };
+  return (
+    <ScreenWrapper>
+      <ScrollView style={styles.container}>
+        <Text style={styles.title}>
+          {`현재 줄일 수 있는 탄소량 
 CO2 <> kg`}
-          </Text>
+        </Text>
 
-          <View style={styles.wrapContent}>
-            <TouchableOpacity onPress={() => setOpen(true), getEmissions()}>
-              <View style={styles.content}></View>
-              <Text style={styles.txt}>샤워</Text>
+        <View style={styles.wrapContent}>
+          <TouchableOpacity onPress={() => showerClickListener()}>
+            <View style={styles.content}></View>
+            <Text style={styles.txt}>샤워</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.wrapContent}>
+          <TouchableOpacity>
+            <View style={styles.content}></View>
+            <Text style={styles.txt}>전기밥솥</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.wrapContent}>
+          <TouchableOpacity>
+            <View style={styles.content2}></View>
+            <Text style={styles.txt}>냉장고</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.wrapContent}>
+          <TouchableOpacity>
+            <View style={styles.content2}></View>
+            <Text style={styles.txt}>재활용</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.wrapContent}>
+          <TouchableOpacity>
+            <View style={styles.content3}></View>
+            <Text style={styles.txt}>에너지 아끼기</Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.wrapContent}>
+          <TouchableOpacity>
+            <View style={styles.content3}></View>
+            <Text style={styles.txt}>저탄소 제품 사용</Text>
+          </TouchableOpacity>
+        </View>
+
+        <Modal
+          open={open}
+          modalDidClose={() => setOpen(false)}
+          style={{alignItems: 'center'}}>
+          <View>
+            <Text style={{fontSize: 20, marginBottom: 30}}>
+              샤워: kg 감소 가능
+            </Text>
+
+            <Text style={styles.popTextTop}>평균 배출량: %</Text>
+            <Text style={styles.popTextTop}>나의 배출량: %</Text>
+            <Text style={styles.popTextBottom}>
+              1. 시나에게 "나 사워할게"라고 말해보세요{' '}
+            </Text>
+            <Text style={styles.popTextBottom}>
+              2. 스마트미러에 샤워 타이머가 나타납니다!{' '}
+            </Text>
+            <Text style={styles.popTextBottom}>
+              3. 샤워 끝나고 시나에게 알려주세요!{' '}
+            </Text>
+            <TouchableOpacity
+              style={{margin: 5}}
+              onPress={() => setOpen(false)}>
+              <Text>확인했습니다!</Text>
             </TouchableOpacity>
           </View>
-
-          <View style={styles.wrapContent}>
-            <TouchableOpacity>
-              <View style={styles.content}></View>
-              <Text style={styles.txt}>전기밥솥</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.wrapContent}>
-            <TouchableOpacity>
-              <View style={styles.content2}></View>
-              <Text style={styles.txt}>냉장고</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.wrapContent}>
-            <TouchableOpacity>
-              <View style={styles.content2}></View>
-              <Text style={styles.txt}>재활용</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.wrapContent}>
-            <TouchableOpacity>
-              <View style={styles.content3}></View>
-              <Text style={styles.txt}>에너지 아끼기</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.wrapContent}>
-            <TouchableOpacity>
-              <View style={styles.content3}></View>
-              <Text style={styles.txt}>저탄소 제품 사용</Text>
-            </TouchableOpacity>
-          </View>
-
-          <Modal
-            open={false}
-            modalDidClose={() => setOpen(false)}
-            style={{alignItems: 'center'}}>
-            <View>
-              <Text style={{fontSize: 20, marginBottom: 30}}>
-                샤워: kg 감소 가능
-              </Text>
-
-              <Text style={styles.popTextTop}>평균 배출량: %</Text>
-              <Text style={styles.popTextTop}>나의 배출량: %</Text>
-              <Text style={styles.popTextBottom}>
-                1. 시나에게 "나 사워할게"라고 말해보세요{' '}
-              </Text>
-              <Text style={styles.popTextBottom}>
-                2. 스마트미러에 샤워 타이머가 나타납니다!{' '}
-              </Text>
-              <Text style={styles.popTextBottom}>
-                3. 샤워 끝나고 시나에게 알려주세요!{' '}
-              </Text>
-              <TouchableOpacity
-                style={{margin: 5}}
-                onPress={() => setOpen(false)}>
-                <Text>확인했습니다!</Text>
-              </TouchableOpacity>
-            </View>
-          </Modal>
-        </ScrollView>
-      </ScreenWrapper>
-    );
-  }
-
+        </Modal>
+      </ScrollView>
+    </ScreenWrapper>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
