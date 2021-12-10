@@ -31,21 +31,17 @@ export default function Recommendation() {
     getShower(token)
       .then(result => {
         const {sum} = result.data;
-        console.log('getShowerResult');
-        console.log(sum);
         let now = new Date();
         let todayDate = now.getDate();
-        console.log(todayDate);
-        setSum(sum / todayDate);
+        setSum(parseInt(sum / todayDate));
         setAve(2130);
-        console.log(JSON.stringify(result, null, 4));
+        getPersonaldataListener();
       })
       .catch(error => {
         console.log('error');
         console.log(JSON.stringify(error, null, 4));
         console.log(JSON.stringify(error.request, null, 4));
       });
-    getPersonaldataListener();
   };
 
   const getPersonaldataListener = () => {
@@ -53,8 +49,6 @@ export default function Recommendation() {
       .then(result => {
         //초당 1.8g 배출
         const {reduction} = result.data;
-        console.log('getPersonaldata');
-        console.log(reduction);
         setReduction(parseInt(reduction / 1.8));
         console.log(JSON.stringify(result, null, 4));
       })
@@ -62,10 +56,6 @@ export default function Recommendation() {
         console.log(JSON.stringify(error, null, 4));
         console.log(JSON.stringify(error.request, null, 4));
       });
-  };
-
-  const showerClickListener = () => {
-    getShower(token);
   };
   return (
     <ScreenWrapper>
@@ -119,7 +109,6 @@ export default function Recommendation() {
           modalStyle={{
             backgroundColor: '#7BA9CC',
             borderRadius: 10,
-            marginBottom: '130%',
           }}
           style={{alignItems: 'center', backgroundColor: '#000'}}>
           <View>
